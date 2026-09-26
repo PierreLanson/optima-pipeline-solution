@@ -28,3 +28,23 @@ def test_get_race_winners_keeps_only_position_one():
             "fastestLapTime": ["01:30.0", "01:29.0", "01:31.0", None],
         }
     )
+
+def test_build_race_stats_keeps_races_without_results():
+    races = pd.DataFrame(
+        {
+            "raceId": [1, 2],
+            "year": [2024, 2024],
+            "round": [1, 2],
+            "name": ["Race A", "Race B"],
+            "date": ["2024-03-02", "2024-03-09"],
+            "time": ["15:00:00", "17:00:00"],
+        }
+    )
+    results = pd.DataFrame(
+        {
+            "raceId": [1],
+            "driverId": [10],
+            "position": [1],
+            "fastestLapTime": ["01:30.0"],
+        }
+    )
