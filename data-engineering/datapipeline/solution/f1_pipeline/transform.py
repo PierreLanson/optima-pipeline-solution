@@ -47,7 +47,7 @@ def build_race_stats(races: pd.DataFrame, results: pd.DataFrame) -> pd.DataFrame
     )
 
     # Int64 used instead of int64 due to null handling missing values without turning ids into floats
-    # Transparency - Claude spotted this bug of int64 vs Int64 but is rather neat
+    # Transparency - Claude spotted this bug of int64 vs Int64 - it is rather intresting
     stats["driverId"] = stats["driverId"].astype("Int64")
     stats = stats.sort_values(["year", "round"]).reset_index(drop=True)
     
