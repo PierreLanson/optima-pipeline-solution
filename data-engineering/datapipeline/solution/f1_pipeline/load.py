@@ -7,7 +7,7 @@ import pandas as pd
 
 def write_yearly_files(stats: pd.DataFrame, output_path: Path) -> None:
     """Write one stats_{year}.json file for each year in the data."""
-    
+
     output_path.mkdir(parents=True, exist_ok=True)
 
     for year, group in stats.groupby("year"):

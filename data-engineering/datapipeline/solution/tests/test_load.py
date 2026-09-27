@@ -1,4 +1,4 @@
-"""Testing for load.py function write_yearly_files"""
+"""Testing load.py function write_yearly_files"""
 
 import json
 
@@ -11,11 +11,11 @@ def test_write_yearly_files_num_equals_num_of_files(tmp_path):
     # Make sure that the number of years in the data == number of files output
 
     stats = pd.DataFrame(
-    {
-        "year": [2023, 2024, 2024, 2025, 3000, 0],
-        "Race Name": ["Race 1", "Race 2", "Race 3", "Race 4", "Race 5", "Race 6"], 
-        "Race Round": [1, 1, 2, 3, 0, 500]
-    }
+        {
+            "year": [2023, 2024, 2024, 2025, 3000, 0],
+            "Race Name": ["Race 1", "Race 2", "Race 3", "Race 4", "Race 5", "Race 6"],
+            "Race Round": [1, 1, 2, 3, 0, 500],
+        }
     )
 
     load.write_yearly_files(stats, tmp_path)
@@ -29,13 +29,13 @@ def test_write_yearly_files_formatting(tmp_path):
     # Make sure that the formatting of fields is correct and nulls are corrected
 
     stats_DataFrame = pd.DataFrame(
-    {
-        "year": [2024, 2024, 2024, 2024],
-        "Race Name": ["Race 1", "Race 2", "Race 3", "Race 4"], 
-        "Race Round": [1, 1, 2, 0],
-        "Race Winning driverId": pd.array([10, None, 20, 30], dtype= "Int64"),
-        "Race Fastest Lap": ["01:30.0", None, "45:31.0", "00:00.1"]
-    }
+        {
+            "year": [2024, 2024, 2024, 2024],
+            "Race Name": ["Race 1", "Race 2", "Race 3", "Race 4"],
+            "Race Round": [1, 1, 2, 0],
+            "Race Winning driverId": pd.array([10, None, 20, 30], dtype="Int64"),
+            "Race Fastest Lap": ["01:30.0", None, "45:31.0", "00:00.1"],
+        }
     )
 
     load.write_yearly_files(stats_DataFrame, tmp_path)

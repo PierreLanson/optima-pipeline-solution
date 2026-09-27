@@ -69,7 +69,7 @@ The pipeline runs in three steps, started by `main.py`:
 
 **Stretch goals**
 
--  Unit tests for every function with logic (see Stretch goals below)
+- Unit tests for every function with logic (see Stretch goals below)
 - Cloud deployment notes: an outline of a simple AWS setup (see below)
 
 ## Supporting documentation
