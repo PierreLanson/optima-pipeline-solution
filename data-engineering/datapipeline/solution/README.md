@@ -2,8 +2,8 @@
 
 ## Overview
 
-Reads F1 race data from `races.csv` and `results.csv` and pairs each race with
-its winner, and outputs one JSON file for each year. 
+Reads F1 race data from `races.csv` and `results.csv`, pairs each race with its winner,
+and outputs one JSON file for each year. 
 
 ## How to run
 
@@ -90,7 +90,8 @@ than one winner.
 
 **A simple setup**
 
-- **Storage:** S3 bucke with the JSON output written to another S3 location.
+- **Storage:** An S3 bucket for races.csv and results.csv with the JSON output
+  written to another S3 location.
 - **Trigger:** the client wants the pipeline to run after each race, so it could
   start automatically when a new file arrives in S3, or on a schedule.
 - **Compute:** at this size, the pipeline could run as an AWS Lambda function.
@@ -110,7 +111,6 @@ than one winner.
   - Average these per driver per season, then compare each season to the next
     (year before ÷ year after > 1 means they improved)
   - Investigate the cause: is it the driver improving or a new car or team?
-
 
 ## What I learnt
 
