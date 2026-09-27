@@ -7,7 +7,7 @@ and outputs one JSON file for each year.
 
 ## How to run
 
-### Requirements
+### Prerequisites
 
 - Python 3.11 or newer (built and tested with Python 3.13)
 - The packages in `requirements.txt` (pandas and pytest)
@@ -51,6 +51,34 @@ The pipeline runs in three steps, started by `main.py`:
 3. **Load** (`load.py`) writes one JSON file per year to the `results` folder.
 
 `config.py` holds the file paths, so they're kept in one place.
+
+## Requirements met
+
+**Core requirements**
+
+- One JSON file per year, named `stats_{year}.json`, in the `results` folder
+- One entry per race in `races.csv`, with the keys `Race Name`, `Race Round`,
+  `Race Datetime`, `Race Winning driverId` and `Race Fastest Lap`
+- `Race Datetime` combines `date` and `time` (UTC), using `00:00:00` when the
+  time is missing
+- The winning driver is the one in position 1 in `results.csv`
+- Values that are always numbers are written as numbers, not strings
+- Built in Python inside the `solution` folder, and run with `main.py`
+- Only the data in `source-data` is used
+- This README explains how to run the pipeline
+
+**Stretch goals**
+
+-  Unit tests for every function with logic (see Stretch goals below)
+- Cloud deployment notes: an outline of a simple AWS setup (see below)
+
+## Supporting documentation
+
+- **This README:** how to run the pipeline, how it works, assumptions and
+  decisions, and stretch goals
+- **Docstrings:** each module and function has a short description of what it does
+- **Unit tests** in `tests/`, which also show how each function is expected to behave
+- **Output files** in `data-engineering/datapipeline/results/`
 
 ## Assumptions and decisions
 
